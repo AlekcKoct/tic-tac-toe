@@ -47,13 +47,13 @@ def on_click(row, col):
     # Проверяем, выиграл ли текущий игрок
     if check_winner():
         if current_player == "X":
-            nikola = "Николай"
-            messagebox.showinfo("Поздравляем!", f"Игрок {nikola} победил!")
             score_X += 1
         else:
-            petr = "Петр"
-            messagebox.showinfo("Поздравляем!", f"Игрок {petr} победил!")
             score_O += 1
+        if score_X == 3:
+            messagebox.showinfo("Поздравляем!", f"Игрок Николай победил!")
+        elif score_O == 3:
+            messagebox.showinfo("Поздравляем!", f"Игрок Петр победил!")
             return
         update_score()
         disable_buttons()
@@ -61,7 +61,7 @@ def on_click(row, col):
 
     # Проверяем, ничья или нет
     elif is_draw():
-        messagebox.showinfo("Игра окончена", "Ничья!")
+        messagebox.showinfo("Игра", "Ничья!")
         disable_buttons()
         return
 
